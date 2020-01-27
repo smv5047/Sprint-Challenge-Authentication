@@ -15,6 +15,6 @@ module.exports = (req, res, next) => {
     req.users = decoded.id
     next()
   } catch (err) {
-  res.status(401).json({ you: 'shall not pass!' })
+  res.status(401).json({ message: 'shall not pass!' })
   }
 };
