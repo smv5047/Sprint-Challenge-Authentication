@@ -7,13 +7,14 @@ const secret = require("../config/secret");
 
 
 module.exports = (req, res, next) => {
+  
   try {
     const token = req.headers.authorization;
-    const decoded = jwt.verify(token, secret.jwt)
+    const decoded = jwt.verify(token, secret.jwtSecret)
 
     req.users = decoded.id
     next()
   } catch (err) {
-  res.status(401).json({ you: 'shall not pass!' });
+  res.status(401).json({ you: 'shall not pass!' })
   }
 };
